@@ -1,0 +1,18 @@
+{% extends 'to_do/base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<h3 style="text-align:center;">Welcome to the website</h3>
+<h2 style="color: RGB(60,60,60); font-size: 160%; text-align:center;"><strong >TASKS</strong></h2>
+<br>
+<p style="text-align:center; font-family: verdana">To create your own tasks and modifier them, first log in to our page or register</p>
+<br>
+<form action="/login">
+    <p style="text-align: center;"><button type="submit" class="btn btn-success">LogIn</button></p>
+</form>
+<br>
+<form action="/register">
+    <p style="text-align: center;"><button type="submit" class="btn btn-success">Register</button></p>
+</form>
+{% endblock %}

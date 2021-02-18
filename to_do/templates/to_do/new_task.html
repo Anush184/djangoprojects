@@ -1,0 +1,19 @@
+{% extends 'to_do/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Create task{% endblock %}
+
+{% block content %}
+
+   <h3>New Task</h3>
+   <form method="POST" >
+      {% csrf_token %}
+      {{ form|crispy}}
+   <!-- here should be the form don't forget about csrf_token -->
+   <input class="btn btn-info" type="submit" name="Create Task">
+   </form>
+
+{% endblock %}
+
+

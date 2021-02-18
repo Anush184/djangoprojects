@@ -1,0 +1,24 @@
+{% extends 'to_do/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}UpdateTask{% endblock %}
+
+{% block content %}
+
+     <h3>Update Task</h3>
+	 <form method="POST" action="">
+		 {% csrf_token %}
+		 {{ form|crispy }}
+
+		<!-- here should be the form don't forget about csrf_token -->
+		<input class="btn btn-info" type="submit" name="Update Task">
+	 </form>
+
+{% endblock %}
+
+
+
+
+
+
