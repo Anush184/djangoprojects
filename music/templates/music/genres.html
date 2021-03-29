@@ -1,0 +1,13 @@
+{% extends 'downloader/base.html' %}
+
+{% block title %}Video_Genres{% endblock %}
+
+{% block content %}
+<br><br>
+{% for genre in genre_list %}
+<ul>
+    <center>{{ genre }}</center>
+</ul>
+{% endfor %}
+
+{% endblock %}

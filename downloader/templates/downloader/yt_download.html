@@ -1,0 +1,56 @@
+{% extends 'downloader/base.html' %}
+{% block title %}Youtube download{% endblock %}
+
+{% block content %}
+{{ request.user }}
+<br>
+<center><h2>YOUR VIDEO!</h2></center>
+<hr>
+<br>
+<div class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <form method="POST">
+                        {% csrf_token %}
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ thumbnail_url }}" preserveAspectRatio="xMidYMid slice">
+                    <div class="card-body text-secondary">
+                        <p class="card-text">{{ title }}</p>
+                        <p class="card-text">{{ rating }}(rating)</p>
+                        <p class="card-text">{{ view }}views</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a type="button" href="{% url 'convert_mp3' a %}" class="btn btn-danger">Download MP3 File</a>
+                            <small class="text-muted">{{ length }}minutes</small>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container"><br>
+   <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Select Resolution</th>
+      <th scope="col">Download MP4 File</th>
+    </tr>
+  </thead>
+       {% for i in rsl %}
+  <tbody>
+    <tr>
+      <td>{{ i }}</td>
+      <!--    Button form for download video-->
+      <td><form action="{% url 'download_video' a %}" method="POST" class="post-form">
+        {% csrf_token %}
+          <input type="hidden" id="custId" name="res" value="{{ i }}">
+        <input type="submit" class="btn btn-outline-danger" value="Download"></form></td>
+    </tr>
+  </tbody>
+       {% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}

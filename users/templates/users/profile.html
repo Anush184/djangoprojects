@@ -1,0 +1,42 @@
+{% extends 'downloader/base.html' %}
+
+{% load static %}
+
+{% block title %}Welcome to Profile page{% endblock %}
+
+{% block content %}
+
+<link  rel="stylesheet" href="{% static 'users/profile_style' %}">
+<br><br>
+<center><h4>Welcome to Profile page</h4></center>
+<section>
+    <div class="container">
+		<div class="col-md-4">
+    		     <div class="card-content">
+                        <center><h3>{{user.username}}</h3></center><br>
+                        <dl>
+                            <dt><small>Biography: </small></dt>
+                            <dd><h6> {{ profile.bio }}</h6></dd>
+                            <dt><small>Location: </small></dt>
+                            <dd><h6> {{ profile.location }}</h6></dd>
+                            <dt><small>Birthdate: </small></dt>
+                            <dd><h6> {{ profile.birthdate }}</h6></dd>
+                            <dt><small>Career: </small></dt>
+                            <dd><h6> {{ profile.career }}</h6></dd>
+                            <dt><small>Experience: </small></dt>
+                            <dd><h6>{{ profile.experience }}</h6></dd>
+                            <dt><small>Phone number: </small></dt>
+                            <dd><h6> {{ profile.phone_number }}</h6></dd>
+                        </dl>
+                    <div class="icon-block">
+                        <a href="https://www.facebook.com" target="_blank" style="color: #682773"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" style="color: #682773"> <i class="fab fa-twitter"></i></a>
+                        <a href="https://www.google.com" target="_blank" style="color: #682773"> <i class="fab fa-google-plus"></i></a>
+						<a href="{% url 'profile_update' %}" role="button" style="color: #682773">Edit Profile</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

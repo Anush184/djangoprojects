@@ -1,0 +1,13 @@
+{% extends 'downloader/base.html' %}
+
+{% block title %}Music_Video{% endblock %}
+
+{% block content %}
+<br><br>
+{% for video in video_list %}
+<ul>
+   <center>{{ video }}</center>
+</ul>
+{% endfor %}
+
+{% endblock %}

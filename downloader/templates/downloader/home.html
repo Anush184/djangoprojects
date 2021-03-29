@@ -1,0 +1,33 @@
+{% extends 'downloader/base.html' %}
+{% block title %}YTB{% endblock %}
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for video in videos %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice">
+                    <div class="card-body text-danger">
+                        <p class="card-text">{{ video.title }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <p>
+                                <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+                                <a type="button" href="{% url 'youtube_video_data' video.id %}" target="_blank" class="btn btn-sm btn-outline-secondary">Download</a>
+                                </p>
+                            </div>
+                            <small class="text-muted">{{ video.duration }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

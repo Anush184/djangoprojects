@@ -1,0 +1,13 @@
+{% extends 'downloader/base.html' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block content %}
+<br><br>
+{% for album in albums %}
+<ul>
+    <center> {{ album }}</center>>
+</ul>
+{% endfor %}
+
+{% endblock %}
